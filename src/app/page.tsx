@@ -4,9 +4,12 @@ import { AdvancedStatisticsSection } from './components/advanced-statistics-sect
 
 export default function Home() {
   return (
+    <>
+    <Hero />
     <main className="max-w-[1110px] min-h-screen flex flex-col items-center justify-between p-6">
-      <Hero />
+      {/* <Hero /> */}
       <AdvancedStatisticsSection />
     </main>
+    </>
   )
 }
