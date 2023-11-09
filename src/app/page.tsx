@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <Hero />
-    <main className="max-w-[1110px] min-h-screen flex flex-col items-center justify-between p-6">
+    <main className="max-w-[1110px] flex flex-col items-center justify-between p-6 mx-auto">
       {/* <Hero /> */}
       <AdvancedStatisticsSection />
     </main>

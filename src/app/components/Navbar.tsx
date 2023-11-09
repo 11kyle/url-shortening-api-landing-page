@@ -13,6 +13,7 @@ export function Navbar() {
         justifyContent="space-between"
         paddingX="24px"
         paddingTop="40px"
+        paddingBottom="30px"
         maxWidth="1110px"
         marginX="auto"
       >

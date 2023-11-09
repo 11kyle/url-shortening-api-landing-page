@@ -1,55 +1,62 @@
 "use client"
 
-import { Box, Grid, GridItem, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
 export function Hero() {
   return (
     <Box 
       backgroundColor="white" 
+      paddingBottom="168px"
     >
-      <Grid 
+      <SimpleGrid 
+        columns={{ md: 2 }}
         rowGap="37px"
         paddingX="24px" 
         maxWidth="1110px" 
         marginX="auto" 
+        alignItems="center"
+        columnGap="100px"
       >
-        <GridItem
+        <Box
+          order={{ md: 2 }}
           position="relative"
           width="full"
-          height="337px"
+          height={{ base: "337px", md: "482px" }}
           overflowX="visible"
         >
           <Box
             position="absolute"
             top="0"
             left="0"
-            height="337px"
-            width="511px"
+            height={{ base: "337px", md: "482px" }}
+            width={{ base: "511px", md: "733px" }}
           >
             <Image 
               src="./illustration-working.svg"
               alt=""
-              height="337px"
-              width="511px"
+              height={{ base: "337px", md: "482px" }}
+              width={{ base: "511px", md: "733px" }}
             />
           </Box>
-        </GridItem>
-        <GridItem>
-          <VStack>
+        </Box>
+        <Box order={{ md: 1 }}>
+          <VStack
+            textAlign={{ base: "center", md: "left"}}
+            align={{ base: "center", md: "start" }}
+            maxWidth="564px"
+          >
             <Heading
               color="#34313D"
-              textAlign="center"
               fontSize="42px"
               fontWeight="700"
               lineHeight="48px"
               letterSpacing="-1.05px"
               marginBottom="15px"
             >
-              More than just shorter links
+              More than just <br />shorter links
             </Heading>
             <Text
               color="#9E9AA8"
-              textAlign="center"
               fontSize="18px"
               fontWeight="500"
               lineHeight="30px"
@@ -70,8 +77,8 @@ export function Hero() {
               Getting Started
             </Box>
           </VStack>
-        </GridItem>
-      </Grid>
+        </Box>
+      </SimpleGrid>
     </Box>
   )
 }

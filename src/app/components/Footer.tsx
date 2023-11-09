@@ -39,13 +39,18 @@ export function Footer() {
     <Box 
       as="footer" 
       backgroundColor="#232127"
+      paddingTop="54px"
+      paddingBottom="56px"
     >
-      <Box 
+      <Flex 
         maxWidth="1110px" 
         paddingX="24px" 
         marginX="auto"
+        direction={{ base: "column", md: "row" }}
+        alignItems={{ base: "center", md: "start" }}
+        justifyContent={{ md: "space-between"}}
       >
-        <Box>
+        <Box marginBottom="49px">
           <Image 
             src="./logo.svg"
           />
@@ -54,6 +59,7 @@ export function Footer() {
           direction={{ base: "column", md: "row" }} 
           justifyContent={{ md: "space-between" }} 
           rowGap="38px"
+          columnGap="70px"
           maxWidth={{ md: "461px" }}
         >
           {navigation.map(linkGroup => (
@@ -82,14 +88,20 @@ export function Footer() {
           ))}
         </Flex>
         
-        <Flex direction="row" justifyContent="space-between" width="168px" height="24px">
+        <Flex 
+          direction="row" 
+          justifyContent="space-between" 
+          width="168px" 
+          height="24px" 
+          marginTop={{ base: "46px", md: "0px"}}
+        >
           {socialNavigation.map(link => (
             <Link key={link.name}>
               <Image src={link.icon} alt={link.name} />
             </Link>
           ))}
         </Flex>
-      </Box>
+      </Flex>
     </Box>
   )
 }

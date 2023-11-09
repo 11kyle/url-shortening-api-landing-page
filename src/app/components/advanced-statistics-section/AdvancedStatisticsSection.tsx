@@ -1,7 +1,8 @@
 "use client"
 
-import { AbsoluteCenter, Box, Card, CardBody, CardHeader, Heading, Image, Text, VStack } from "@chakra-ui/react"
-import { Line } from "./Line"
+import { Box, Card, CardBody, CardHeader, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react"
+import { VerticalLine } from "./VerticalLine"
+import { HorizontalLine } from "./HorizontalLine"
 
 const cards = [
   {
@@ -27,8 +28,8 @@ export function AdvancedStatisticsSection() {
       marginTop="92px"
       position="relative"
     >
-      <Line />
-      <VStack gap="16px" textAlign="center" marginBottom="92px">
+      <VerticalLine />
+      <VStack gap="16px" textAlign="center" marginBottom="92px" maxWidth="540px">
         <Heading
           color="#34313D"
           fontSize="28px"
@@ -48,23 +49,20 @@ export function AdvancedStatisticsSection() {
           Track how your links are performing across the web with our advanced statistics dashboard.
         </Text>
       </VStack>
+      <Flex direction={{ base: "column", md: "row" }} rowGap="92px" columnGap={{ md: "30px"}} position="relative">
+        <HorizontalLine />
       {cards.map(card => (
         <Card 
           position="relative"
           paddingX="32px"
           paddingTop="77px"
           paddingBottom="32px"
-          marginBottom="92px"
           rounded="5px"
           shadow="none"
           backgroundColor="white"
-          textAlign="center"
+          textAlign={{ base: "center", md: "left" }}
+          maxWidth="350px"
         >
-          {/* <AbsoluteCenter>
-            <Image 
-              src={card.icon}
-            />
-          </AbsoluteCenter> */}
           <Box
             position="absolute"
             top="0"
@@ -105,6 +103,7 @@ export function AdvancedStatisticsSection() {
           </CardBody>
         </Card>
       ))}
+      </Flex>
     </VStack>
   )
 }
