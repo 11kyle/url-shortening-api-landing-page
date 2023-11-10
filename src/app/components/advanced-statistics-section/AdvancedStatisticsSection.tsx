@@ -49,7 +49,12 @@ export function AdvancedStatisticsSection() {
           Track how your links are performing across the web with our advanced statistics dashboard.
         </Text>
       </VStack>
-      <Flex direction={{ base: "column", md: "row" }} rowGap="92px" columnGap={{ md: "30px"}} position="relative">
+      <Flex 
+        direction={{ base: "column", md: "row" }} 
+        rowGap="92px" 
+        columnGap={{ md: "30px"}} 
+        position="relative"
+      >
         <HorizontalLine />
       {cards.map(card => (
         <Card 

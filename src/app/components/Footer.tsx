@@ -1,4 +1,10 @@
-import { Box, HStack, Link, Image, VStack, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Link, Image, Flex, Heading, Text } from "@chakra-ui/react";
+import { IconFacebook } from "./icons/socials/icon-facebook";
+import { IconTwitter } from "./icons/socials/icon-twitter";
+import { IconPinterest } from "./icons/socials/icon-pinterest";
+import { IconInstagram } from "./icons/socials/icon-instagram";
+import { Logo } from "./icons/logo";
+import { color } from "framer-motion";
 
 const navigation = [
   {
@@ -18,19 +24,19 @@ const navigation = [
 const socialNavigation = [
   {
     name: "facebook",
-    icon: "./icon-facebook.svg",
+    icon: <IconFacebook className="fill-white hover:fill-[#2BD0D0]" />,
   },
   {
     name: "twitter",
-    icon: "./icon-twitter.svg",
+    icon: <IconTwitter className="fill-white hover:fill-[#2BD0D0]" />,
   },
   {
     name: "pinterest",
-    icon: "./icon-pinterest.svg",
+    icon: <IconPinterest className="fill-white hover:fill-[#2BD0D0]" />,
   },
   {
     name: "instagram",
-    icon: "./icon-instagram.svg",
+    icon: <IconInstagram className="fill-white hover:fill-[#2BD0D0]" />,
   },
 ]
 
@@ -51,9 +57,7 @@ export function Footer() {
         justifyContent={{ md: "space-between"}}
       >
         <Box marginBottom="49px">
-          <Image 
-            src="./logo.svg"
-          />
+          <Logo fill="white" />
         </Box>
         <Flex 
           direction={{ base: "column", md: "row" }} 
@@ -80,6 +84,10 @@ export function Footer() {
                       fontSize="15px"
                       fontWeight="500"
                       letterSpacing="-0.234px"
+                      _hover={{
+                        color: "#2BD0D0",
+                        cursor: "pointer"
+                      }}
                     >{link}</Text>
                   </li>
                 ))}
@@ -97,7 +105,7 @@ export function Footer() {
         >
           {socialNavigation.map(link => (
             <Link key={link.name}>
-              <Image src={link.icon} alt={link.name} />
+              {link.icon}
             </Link>
           ))}
         </Flex>

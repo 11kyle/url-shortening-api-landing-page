@@ -4,6 +4,7 @@ import './globals.css'
 import { Providers } from './providers'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
+import { TagLine } from './components/TagLine'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <TagLine />
           <Footer />
         </Providers>
       </body>

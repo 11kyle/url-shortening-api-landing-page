@@ -1,6 +1,7 @@
 "use client"
 
 import { Box, Flex, Image } from "@chakra-ui/react";
+import { Logo } from "./icons/logo";
 
 export function Navbar() {
   return (
@@ -18,10 +19,7 @@ export function Navbar() {
         marginX="auto"
       >
         <Box>
-          <Image 
-            alt=""
-            src="./logo.svg"
-          />
+          <Logo fill="#34313D" />
         </Box>
         <Image 
           src="./icon-hamburger.svg"
