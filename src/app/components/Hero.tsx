@@ -9,7 +9,7 @@ export function Hero() {
       paddingBottom="168px"
     >
       <SimpleGrid 
-        columns={{ md: 2 }}
+        columns={{ base: 1, md: 2 }}
         rowGap="37px"
         paddingX="24px" 
         maxWidth="1110px" 
@@ -44,6 +44,7 @@ export function Hero() {
             textAlign={{ base: "center", md: "left"}}
             align={{ base: "center", md: "start" }}
             maxWidth="564px"
+            marginX="auto"
           >
             <Heading
               color="#34313D"

@@ -7,7 +7,7 @@
     overflow-x: hidden;
   }
   body {
-    background-color: #EFF1F7;
+    @apply bg-[#EFF1F7];
   }
 }
 

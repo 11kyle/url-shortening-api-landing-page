@@ -51,12 +51,17 @@ export default function ShortenLinkSection() {
     )
   }
 
+  const handleCopy = () => {
+    
+  }
+
   return (
     <Flex
       direction="column"
       rowGap="16px"
       width="full"
       className="-translate-y-[108px]"
+      marginBottom="-108px"
     >
       <Box
         backgroundColor="#3A3054"
