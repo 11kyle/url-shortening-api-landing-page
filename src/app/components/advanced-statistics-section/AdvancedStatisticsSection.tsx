@@ -3,6 +3,7 @@
 import { Box, Card, CardBody, CardHeader, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react"
 import { VerticalLine } from "./VerticalLine"
 import { HorizontalLine } from "./HorizontalLine"
+import clsx from "clsx"
 
 const cards = [
   {
@@ -25,8 +26,8 @@ const cards = [
 export function AdvancedStatisticsSection() {
   return (
     <VStack 
-      marginTop="92px"
       position="relative"
+      marginY="120px"
     >
       <VerticalLine />
       <VStack gap="16px" textAlign="center" marginBottom="92px" maxWidth="540px">
@@ -54,10 +55,12 @@ export function AdvancedStatisticsSection() {
         rowGap="92px" 
         columnGap={{ md: "30px"}} 
         position="relative"
+        marginBottom={{ md: "88px"}}
       >
         <HorizontalLine />
-      {cards.map(card => (
+      {cards.map((card, i) => (
         <Card 
+          key={card.title}
           position="relative"
           paddingX="32px"
           paddingTop="77px"
@@ -67,6 +70,12 @@ export function AdvancedStatisticsSection() {
           backgroundColor="white"
           textAlign={{ base: "center", md: "left" }}
           maxWidth="350px"
+          className={clsx(
+            // i === 1 && "mt-[44px]",
+            // i === 2 && "mt-[88px]"
+            i === 1 && "md:top-[44px]",
+            i === 2 && "md:top-[88px]"
+          )}
         >
           <Box
             position="absolute"
