@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 type Link = {
@@ -39,20 +39,24 @@ export default function ShortenLinkSection() {
     }
   }
 
-  const handleSubmit = () => {
-    const res = shortenLink(link).then(
-      (data) => {
-        // add to links state
-        setLinks([...links, {
-          longUrl: link,
-          shortUrl: data.result_url as string
-        }])
-      }
-    )
+  const handleSubmit = async () => {
+    const res = await shortenLink(link)
+
+    console.log(res)
+    if (res.error) {
+      return
+    }
+
+    setLinks([...links, {
+      longUrl: link,
+      shortUrl: res.result_url as string
+    }])
+
+    setLink("") // clear input
   }
 
   const handleCopy = () => {
-    
+
   }
 
   return (
@@ -67,7 +71,18 @@ export default function ShortenLinkSection() {
         backgroundColor="#3A3054"
         rounded="10px"
         overflow="hidden"
+        position="relative"
       >
+        <Box
+          position="absolute"
+          className="z-0 inset-0"
+        >
+          <Image 
+            width="full"
+            height="full"
+            src="/bg-shorten-desktop.svg"
+          />
+        </Box>
         <Flex
           direction={{ base: "column", md: "row" }}
           rowGap="16px"
@@ -84,28 +99,33 @@ export default function ShortenLinkSection() {
             fontWeight="500"
             lineHeight="36px"
             letterSpacing="0.12px"
-            className="placeholder:opacity-50"
+            className="placeholder:opacity-50 z-10"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
           />
-
           <Box 
             as="button"
             backgroundColor="#2BD0D0"
             color="white"
+            _hover={{ backgroundColor: "#9AE3E3" }}
+            _disabled={{ backgroundColor: "#9AE3E3" }}
             rounded="5px"
             fontSize="18px"
             fontWeight="700"
             width="full"
             height="48px"
             maxWidth={{ md: "188px" }}
+            className="z-10"
             onClick={handleSubmit}
+            disabled={link.length < 1}
           >
             Shorten It!
           </Box>
         </Flex>
       </Box>
-      {links.map(link => (
+      {links.map((link, i) => (
         <Flex
-          key={link.longUrl}
+          key={i}
           backgroundColor="white"
           height={{ base: "155px", md: "72px" }}
           rounded="5px"
